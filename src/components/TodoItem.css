@@ -1,0 +1,62 @@
+li {
+    display: flex;
+    align-items: center;
+    background-color: #e2f1d9;
+    border: 3px solid #b8daab;
+    border-radius: 12px;
+    padding: 10px 15px;
+    margin-bottom: 7px;
+    font-size: 11px;
+    color: #5d7e51;
+}
+
+li span {
+    flex-grow: 1;
+    margin: 0 10px;
+}
+li span[style*="line-through"] {
+   color: #9cb893;
+}
+
+.todo-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+
+    width: 22px;
+    height: 22px;
+    background-color: #fff;
+    border: 3px solid #b8daab;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+}
+
+.todo-checkbox:checked::before {
+    content: '✔';
+    font-size: 14px;
+    color: #d95a8f;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.delete-btn{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 8px;
+    background-color: #f8c9d8;
+    color: #c95e86;
+    border: none;
+    border-radius: 8px;
+    width: 70px;
+    height: 25px;
+    cursor: pointer;
+    padding: 10px;
+    box-shadow: 0 3px 0 0 #e49ab5;
+    transition: all 0.05s ease-in-out;
+
+}
+ .delete-btn:active{
+    box-shadow: 0 1px 0 0 #e49ab5;
+    transform: translateY(2px);
+ }
