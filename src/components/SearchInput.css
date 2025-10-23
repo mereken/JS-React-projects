@@ -1,0 +1,24 @@
+.search-container {
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 100%; 
+  padding: 10px 12px; 
+  border-radius: 12px;
+  border: 3px solid #e0e0e0;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
+  background-color: #fff;
+  box-sizing: border-box; 
+  color: #5d7e51;
+  outline: none; 
+}
+
+.search-input::placeholder {
+  color: #b8daab;
+}
+
+.search-input:focus {
+  border-color: #f6b5d0; 
+}

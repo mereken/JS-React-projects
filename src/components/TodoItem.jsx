@@ -16,9 +16,13 @@ function TodoItem({todo, onDelete, onToggle}) {
                 checked={todo.completed}
                 onChange={handleToggleClick}
             />
-            <span style={{ textDecoration: todo.completed ? 'line-through' : 'none'}}>
-                {todo.title}
+        <div className="todo-content">
+            <span style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
+            {todo.title}
             </span>
+        
+            {todo.dueDate && <small className="due-date">Срок: {todo.dueDate}</small>}
+        </div>
 
             <button className='delete-btn' onClick={handleDeleteClick}>Delete</button>
         </li>

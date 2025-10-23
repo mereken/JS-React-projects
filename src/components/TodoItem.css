@@ -10,10 +10,19 @@ li {
     color: #5d7e51;
 }
 
-li span {
-    flex-grow: 1;
-    margin: 0 10px;
+.todo-content {
+  flex-grow: 1; 
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column; 
+  gap: 4px; 
 }
+
+.due-date {
+  font-size: 9px;
+  color: #8aab7e; 
+}
+
 li span[style*="line-through"] {
    color: #9cb893;
 }
@@ -21,7 +30,6 @@ li span[style*="line-through"] {
 .todo-checkbox {
     appearance: none;
     -webkit-appearance: none;
-
     width: 22px;
     height: 22px;
     background-color: #fff;
@@ -29,8 +37,8 @@ li span[style*="line-through"] {
     border-radius: 5px;
     cursor: pointer;
     position: relative;
+    flex-shrink: 0;
 }
-
 .todo-checkbox:checked::before {
     content: '✔';
     font-size: 14px;
@@ -40,8 +48,7 @@ li span[style*="line-through"] {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
-.delete-btn{
+.delete-btn {
     font-family: 'Press Start 2P', cursive;
     font-size: 8px;
     background-color: #f8c9d8;
@@ -54,9 +61,9 @@ li span[style*="line-through"] {
     padding: 10px;
     box-shadow: 0 3px 0 0 #e49ab5;
     transition: all 0.05s ease-in-out;
-
+    flex-shrink: 0; /* Не сжиматься */
 }
- .delete-btn:active{
+.delete-btn:active{
     box-shadow: 0 1px 0 0 #e49ab5;
     transform: translateY(2px);
- }
+}
