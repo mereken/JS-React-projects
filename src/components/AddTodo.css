@@ -1,5 +1,5 @@
 .add-todo {
-    margin-bottom: 25px; 
+  margin-bottom: 25px; 
 }
 
 .add-todo-form {
@@ -8,10 +8,11 @@
   align-items: center; 
 }
 .date-input {
+  height: 40px;
   flex-grow: 0; 
   flex-shrink: 0; 
-  width: 105px; 
-  padding: 10px; 
+  width: 140px; 
+  padding: 15px; 
   border-radius: 12px;
   border: 3px solid #e0e0e0;
   font-family: 'Press Start 2P', cursive;
@@ -27,6 +28,7 @@
 }
 
 .text-input {
+  height: 40px;
   flex-grow: 1; 
   padding: 10px 12px; 
   border-radius: 12px;
@@ -48,20 +50,20 @@
 }
 
 .add-todo-form button {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 10px;
-    padding: 10px 15px; 
-    background-color: #f6b5d0;
-    color: #a73c68;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    box-shadow: 0 4px 0 0 #d95a8f;
-    transition: all 0.05s ease-in-out;
-    flex-shrink: 0; 
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
+  padding: 12px 15px; 
+  background-color: #f6b5d0;
+  color: #a73c68;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 0 0 #d95a8f;
+  transition: all 0.05s ease-in-out;
+  flex-shrink: 0; 
 }
 
 .add-todo-form button:active{
-    box-shadow: 0 1px 0 0 #d95a8f;
-    transform: translateY(3px);
+  box-shadow: 0 1px 0 0 #d95a8f;
+  transform: translateY(3px);
 }

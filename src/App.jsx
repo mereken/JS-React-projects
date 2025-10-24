@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import AddTodoForm from './components/AddTodo';
 import TodoList from './components/TodoList';
 import SearchInput from './components/SearchInput';
+import FilterDropdown from './components/FilterDropdown';
 import './App.css'
 
 function App() {
@@ -9,28 +10,41 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState(''); 
+  const [viewMode, setViewMode] = useState('current');
+
+  const fetchTodosByMode = async (mode) => {
+    setLoading(true);
+    setError(null);
+    let url;
+    if (mode === 'old') {
+      url = "https://jsonplaceholder.typicode.com/todos?_start=11&_limit=50"; 
+    } else { 
+      url = "https://jsonplaceholder.typicode.com/todos?_limit=10";
+    }
+
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch ${mode} todos`);
+      }
+      const data = await response.json();
+      
+      const initialTodos = data.map(todo => ({
+          ...todo,
+          dueDate: null 
+      }));
+      setTodos(initialTodos);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+
+  };
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/todos?_limit=10")
-      .then((response) => {
-        if(!response.ok) {
-          throw new Error ("Failed to fetch todos");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        const initialTodos = data.map(todo => ({
-            ...todo,
-            dueDate: null 
-        }));
-        setTodos(initialTodos);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      });
-  }, []);
+    fetchTodosByMode(viewMode); 
+  }, [viewMode]);
 
   const handleAddTodo = (title, date) => {
     const newTodo = {
@@ -85,7 +99,10 @@ function App() {
   return(
     <div className='App'>
       <h1>My To-Do List</h1>
-      <SearchInput searchTerm={searchTerm} onSearchChange={setSearchTerm} />
+      <div className="controls-container"> 
+        <SearchInput searchTerm={searchTerm} onSearchChange={setSearchTerm} />
+        <FilterDropdown viewMode={viewMode} setViewMode={setViewMode} />
+      </div>
       <AddTodoForm onAddTodo={handleAddTodo} />
 
       <TodoList 

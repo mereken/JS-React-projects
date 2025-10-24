@@ -1,0 +1,23 @@
+.filter-dropdown-container {
+    flex-shrink: 0; 
+}
+
+.filter-select {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 8px; 
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 3px solid #f6b5d0; 
+    background-color: #fdecf2; 
+    color: #a73c68; 
+    cursor: pointer;
+    outline: none;
+    height: 40px; 
+    box-sizing: border-box;
+    appearance: none; 
+    text-align: center;
+}
+
+.filter-select:focus {
+    border-color: #d95a8f;
+}

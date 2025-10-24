@@ -1,5 +1,6 @@
 .search-container {
-  margin-bottom: 20px;
+  flex-grow: 1; 
+  margin-bottom: 0px; 
 }
 
 .search-input {
@@ -13,6 +14,8 @@
   box-sizing: border-box; 
   color: #5d7e51;
   outline: none; 
+  height: 40px; 
+  box-sizing: border-box;
 }
 
 .search-input::placeholder {
